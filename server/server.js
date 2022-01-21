@@ -14,7 +14,10 @@ const foodTypeRouter = require('./routers/foodTypeRouter')
 
 db.on('error', () => {
     console.log('Connection error');
-});
+}); 
+if (process.env.NODE_ENV === 'production') {
+    append.use(express.static('client/build'))
+}
 
 app.use('/api/user', userRouter)
 app.use('/api/food', foodTypeRouter)

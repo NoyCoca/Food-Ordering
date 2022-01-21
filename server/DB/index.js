@@ -7,9 +7,7 @@ const options = {
 }
 const URI = process.env.URI
 
-if (process.env.NODE_ENV === 'production'){
-    append.use(express.static('client/build'))
-}
+
 mongoose.connect(URI, options).then(() => console.log('mongoDB connected'))
 
 
