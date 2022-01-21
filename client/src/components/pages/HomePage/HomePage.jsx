@@ -9,7 +9,7 @@ const HomePage = () => {
 
   useEffect(() => {
         window.scrollTo(0, 0);
-    fetch("http://localhost:8080/api/food/getFoodType")
+    fetch("api/food/getFoodType")
       .then((res) => res.json())
       .then((res) => setFoodTypes(res.data));
   }, []);

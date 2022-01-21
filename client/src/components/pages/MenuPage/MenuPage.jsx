@@ -9,7 +9,7 @@ const MenuPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch(`http://localhost:8080/api/food/getFoodTypeById/${id}`)
+    fetch(`api/food/getFoodTypeById/${id}`)
       .then((res) => res.json())
       .then((res) => setMenu(res.data));
   }, []);
