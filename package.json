@@ -26,6 +26,5 @@
     "nodemon": "^2.0.12",
     "styled-components": "^5.3.3",
     "validator": "^13.6.0"
-  },
-  "proxy": "http://localhost:8080/"
+  }
 }
