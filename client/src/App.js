@@ -10,7 +10,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <div className="App" style={{ background: " #f7f4ea82" }} >
+    <div className="App" >
     <Provider value={{ state, dispatch }} >
       <Router>
         <Layout>

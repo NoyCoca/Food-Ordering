@@ -3,10 +3,11 @@ import Fade from "react-reveal/Reveal";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import FoodBankRoundedIcon from "@mui/icons-material/FoodBankRounded";
 const HomePageImg = ({ title, img, matches }) => {
+  const homePageTitle ="Speedy food, good food"
   const StyleDiv = styled.div`
     background-image: url(${img});
     width: 100%;
-    min-height: 100vh;
+    min-height: ${title !== homePageTitle && !matches ? "50vh" : "100vh"};
     background-size: cover;
   `;
   const InSideDiv = styled.h1`
@@ -15,7 +16,7 @@ const HomePageImg = ({ title, img, matches }) => {
     flex-direction: ${matches ? "" : "column"};
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    min-height: ${title !== homePageTitle && !matches ? "50vh" : "100vh"};
     margin: 0;
     font-size: ${matches ? "70px" : ""};
     font-family: "Comfortaa", cursive;
@@ -29,7 +30,7 @@ const HomePageImg = ({ title, img, matches }) => {
       <InSideDiv>
         <Fade left>
           <h1 style={{ margin: "0px" }}>
-            {title !== "Speedy food, good food" ? (
+            {title !== homePageTitle ? (
               <FoodBankRoundedIcon style={{ fontSize: "300px" }} />
             ) : (
               <DeliveryDiningIcon style={{ fontSize: "300px" }} />

@@ -28,7 +28,7 @@ const dispatch = UseMyContext().dispatch
         image={dish.dishesImg}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" >
           {dish.dishesName}
         </Typography>
         <Typography variant="body2" color="text.secondary">

@@ -28,7 +28,12 @@ const SummaryCard = ({ dish }) => {
         style={{ alignSelf: "center" }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h6" component="div">
+        <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          style={{ color: "#020202", fontWeight: 700 }}
+        >
           {dish.dishesName}
         </Typography>
         <Typography variant="body2" color="text.secondary">
