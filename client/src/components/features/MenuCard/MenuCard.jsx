@@ -17,7 +17,10 @@ const MenuCard = ({ dish }) => {
 const dispatch = UseMyContext().dispatch
 
   return (
-    <Card sx={{ maxWidth: 345 }} style={{ margin: "10px" }}>
+    <Card
+      sx={{ maxWidth: 345 }}
+      style={{ margin: "10px", background: "#fff0" }}
+    >
       <CardMedia
         component="img"
         alt="green iguana"
@@ -37,7 +40,7 @@ const dispatch = UseMyContext().dispatch
         <Select sizes={dish.size} size={size} handleChange={handleChange} />
         <>
           {size ? (
-            <p style={{fontSize: "17px", fontWeight: "600"}}>
+            <p style={{ fontSize: "17px", fontWeight: "600" }}>
               {dish?.size?.find((dishSize) => dishSize.size === size).price}$
             </p>
           ) : (

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Fade from "react-reveal/Reveal";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import FoodBankRoundedIcon from "@mui/icons-material/FoodBankRounded";
-const HomePageImg = ({ title, img, matches}) => {
+const HomePageImg = ({ title, img, matches }) => {
   const StyleDiv = styled.div`
     background-image: url(${img});
     width: 100%;
@@ -12,11 +12,12 @@ const HomePageImg = ({ title, img, matches}) => {
   const InSideDiv = styled.h1`
     display: flex;
     justify-content: center;
+    flex-direction: ${matches ? "" : "column"};
     align-items: center;
     text-align: center;
     min-height: 100vh;
     margin: 0;
-    font-size: ${matches ? "70px" :""};
+    font-size: ${matches ? "70px" : ""};
     font-family: "Comfortaa", cursive;
     background: #00000038;
     color: #ffffffdd;
@@ -27,7 +28,7 @@ const HomePageImg = ({ title, img, matches}) => {
     <StyleDiv>
       <InSideDiv>
         <Fade left>
-          <h1>
+          <h1 style={{ margin: "0px" }}>
             {title !== "Speedy food, good food" ? (
               <FoodBankRoundedIcon style={{ fontSize: "300px" }} />
             ) : (

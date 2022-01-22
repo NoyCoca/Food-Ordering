@@ -22,7 +22,7 @@ const MenuPage = () => {
       <div
         style={{
           display: "flex",
-          margin: "70px",
+          margin: matches ? "70px" : "0",
           flexWrap: "wrap",
           justifyContent: "space-evenly",
         }}
