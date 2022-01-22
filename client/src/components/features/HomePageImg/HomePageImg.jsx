@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Fade from "react-reveal/Reveal";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import FoodBankRoundedIcon from "@mui/icons-material/FoodBankRounded";
-const HomePageImg = ({ title, img }) => {
+const HomePageImg = ({ title, img, matches}) => {
   const StyleDiv = styled.div`
     background-image: url(${img});
     width: 100%;
@@ -16,7 +16,7 @@ const HomePageImg = ({ title, img }) => {
     text-align: center;
     min-height: 100vh;
     margin: 0;
-    font-size: 70px;
+    font-size: ${matches ? "70px" :""};
     font-family: "Comfortaa", cursive;
     background: #00000038;
     color: #ffffffdd;

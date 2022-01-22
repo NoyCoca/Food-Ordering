@@ -2,10 +2,12 @@ import MenuCard from "../../features/MenuCard/MenuCard";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import HomePageImg from '../../features/HomePageImg/HomePageImg'
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const MenuPage = () => {
   const [menu, setMenu] = useState([]);
   const { id } = useParams();
+  const matches = useMediaQuery("(min-width:700px)");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,7 +18,7 @@ const MenuPage = () => {
   
   return (
     <div>
-      <HomePageImg title={menu.foodType} img={menu.img} />
+      <HomePageImg title={menu.foodType} img={menu.img} matches={matches} />
       <div
         style={{
           display: "flex",
