@@ -7,8 +7,11 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import TableSize from "../TableSize/TableSize";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const SummaryCard = ({ dish }) => {
+    const matches = useMediaQuery("(min-width:700px)");
+
   return (
     <Card
       style={{
@@ -18,6 +21,8 @@ const SummaryCard = ({ dish }) => {
         margin: "15px",
         boxShadow: "rgb(0 0 0 / 6%) 1px 0px 20px 0px;",
         backgroundColor: " #fff0",
+        backgroundImage: `url(${matches ? "" : dish.dishesImg})`,
+        backgroundSize: "cover"
       }}
     >
       <img
@@ -25,18 +30,22 @@ const SummaryCard = ({ dish }) => {
         width="30%"
         src={dish.dishesImg}
         alt={dish.name}
-        style={{ alignSelf: "center" }}
+        style={{ alignSelf: "center", display: `${matches ? "": "none"}` }}
       />
       <CardContent>
-        <Typography
+        {/* <Typography
           gutterBottom
           variant="h6"
           component="div"
-          style={{ color: "#020202", fontWeight: 700 }}
+          style={{ color: "#fff6f6", fontWeight: 700 }}
         >
           {dish.dishesName}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
+        </Typography> */}
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          style={{ padding: "0px" }}
+        >
           <TableSize size={dish.size} dish={dish} />
         </Typography>
       </CardContent>

@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { UseMyContext } from "../../../Context";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
-import { Button, IconButton } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 
 const TableSize = ({ size, dish }) => {
   const [total, setTotal] = useState(0);
@@ -27,8 +27,20 @@ const TableSize = ({ size, dish }) => {
   console.log(total);
 
   return (
-    <TableContainer component={Paper} style={{ width: "100%" }}>
-      <Table aria-label="simple table">
+    <TableContainer
+      component={Paper}
+      style={{ width: "100%", background: "#ffffff7a" }}
+    >
+      <Typography
+          gutterBottom
+          variant="h6"
+          component="div"
+          style={{ color: "#000000", fontWeight: 700 }}
+        >
+          {dish.dishesName}
+        </Typography>
+
+      <Table aria-label="simple table" style={{}}>
         <TableHead>
           <TableRow>
             <TableCell size="small">Size</TableCell>
@@ -42,7 +54,7 @@ const TableSize = ({ size, dish }) => {
             <TableCell align="right" size="small"></TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody style={{ fontWeight: 900 }}>
           {size.map((size) =>
             size.items ? (
               <TableRow
