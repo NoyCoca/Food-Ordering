@@ -1,7 +1,6 @@
 import { Button, ButtonGroup, useMediaQuery } from "@mui/material";
 import styled from "styled-components";
 import { UseMyContext } from "../../../Context";
-import Footer from "../../features/Footer/Footer";
 import SummaryCard from "../../features/SummaryCard/SummaryCard";
 
 const SummaryPage = () => {
@@ -24,20 +23,17 @@ const SummaryPage = () => {
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <div>
             {state.dishes.map((dish) => (
-              <SummaryCard dish={dish} />
+              <SummaryCard dish={dish} matches={matches} />
             ))}
           </div>
           <StyleDiv>
             <h1>Total price: {state.summary.price} $</h1>
-            {/* <ButtonGroup variant="outlined" aria-label="outlined button group"> */}
             <Button>Pay now</Button>
-            {/* </ButtonGroup> */}
           </StyleDiv>
         </div>
       ) : (
         "your cart is empty"
       )}
-      {/* <Footer /> */}
     </div>
   );
 };

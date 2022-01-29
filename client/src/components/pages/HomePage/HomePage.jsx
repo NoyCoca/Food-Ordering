@@ -13,7 +13,6 @@ const HomePage = () => {
       .then((res) => res.json())
       .then((res) => setFoodTypes(res.data));
   }, []);
-  console.log(foodTypes);
   return (
     <>
       <HomePageImg

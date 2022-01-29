@@ -23,7 +23,6 @@ const addDishes = async (req, res) => {
             , { $addToSet: { dishes: dishes } },
             { new: true },
             (error, result) => {
-                console.log(result)
                 if (error) throw error;
                 res.status(200).json({ massage: "add dishes success", data: result });
             })

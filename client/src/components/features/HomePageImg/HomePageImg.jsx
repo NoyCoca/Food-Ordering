@@ -24,7 +24,6 @@ const HomePageImg = ({ title, img, matches }) => {
     color: #ffffffdd;
   `;
 
-  console.log(title);
   return (
     <StyleDiv>
       <InSideDiv>

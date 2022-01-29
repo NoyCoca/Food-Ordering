@@ -16,7 +16,6 @@ const foodTypeRouter = require('./routers/foodTypeRouter')
 const PORT = process.env.PORT || 8080
 app.listen(PORT, ()=> console.log(`Server stared on port ${PORT}`))
 db.on('error', () => {
-    console.log('Connection error');
 }); 
 
 app.use('/api/user', userRouter)

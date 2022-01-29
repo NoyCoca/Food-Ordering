@@ -13,45 +13,58 @@ import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import { Button, IconButton, Typography } from "@mui/material";
 
-const TableSize = ({ size, dish }) => {
+const TableSize = ({ size, dish, matches }) => {
   const [total, setTotal] = useState(0);
-  const dispatch = UseMyContext().dispatch
+  const dispatch = UseMyContext().dispatch;
   const { dishes } = UseMyContext().state;
-  console.log(dishes);
+
   useEffect(() => {
     size.map((size) =>
-      size.items > 0 ? setTotal((total) => total + size.items * size.price) : ""
+      size.items > 0 ? setTotal((total) => size.items * size.price) : ""
     );
   }, [dishes, size]);
-
-  console.log(total);
+  let fontColor = `${matches ? "black" : "white"}`;
 
   return (
     <TableContainer
       component={Paper}
-      style={{ width: "100%", background: "#ffffff7a" }}
+      style={{
+        width: "100%",
+        background: `${matches ? "#ffffff7a" : "rgb(0 0 0 / 41%)"}`,
+        color: fontColor 
+      }}
     >
       <Typography
-          gutterBottom
-          variant="h6"
-          component="div"
-          style={{ color: "#000000", fontWeight: 700 }}
-        >
-          {dish.dishesName}
-        </Typography>
+        gutterBottom
+        variant="h6"
+        component="div"
+        style={{ color: fontColor, fontWeight: 700 }}
+      >
+        {dish.dishesName}
+      </Typography>
 
-      <Table aria-label="simple table" style={{}}>
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell size="small">Size</TableCell>
-            <TableCell align="right" size="small">
+            <TableCell style={{ color: fontColor }} size="small">
+              Size
+            </TableCell>
+            <TableCell style={{ color: fontColor }} align="right" size="small">
               Items
             </TableCell>
-            <TableCell align="right" size="small">
+            <TableCell style={{ color: fontColor }} align="right" size="small">
               Price
             </TableCell>
-            <TableCell align="right" size="small"></TableCell>
-            <TableCell align="right" size="small"></TableCell>
+            <TableCell
+              style={{ color: fontColor }}
+              align="right"
+              size="small"
+            ></TableCell>
+            <TableCell
+              style={{ color: fontColor }}
+              align="right"
+              size="small"
+            ></TableCell>
           </TableRow>
         </TableHead>
         <TableBody style={{ fontWeight: 900 }}>
@@ -61,16 +74,21 @@ const TableSize = ({ size, dish }) => {
                 key={size.dishName}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row" size="small">
+                <TableCell
+                  style={{ color: fontColor }}
+                  component="th"
+                  scope="row"
+                  size="small"
+                >
                   {size.size}
                 </TableCell>
-                <TableCell size="small" align="right">
+                <TableCell style={{ color: fontColor }} size="small" align="right">
                   {size.items}
                 </TableCell>
-                <TableCell align="right" size="small">
+                <TableCell style={{ color: fontColor }} align="right" size="small">
                   {size.price * size.items}$
                 </TableCell>
-                <TableCell align="right" size="small">
+                <TableCell style={{ color: fontColor }} align="right" size="small">
                   <IconButton
                     color="primary"
                     aria-label="upload picture"
@@ -85,7 +103,7 @@ const TableSize = ({ size, dish }) => {
                     <AddOutlinedIcon style={{ fontSize: "15px" }} />
                   </IconButton>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell style={{ color: fontColor }} align="right">
                   <IconButton
                     color="primary"
                     aria-label="upload picture"

@@ -14,7 +14,6 @@ const StyledBadge = styled(Badge)(() => ({
 }));
 
 const CartButton = ({ counter }) => {
-  console.log(counter);
   return (
     <IconButton aria-label="cart">
       <RubberBand spy={counter}>
