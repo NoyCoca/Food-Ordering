@@ -3,7 +3,7 @@ import Layout from './components/features/Layout/Layout';
 import { BrowserRouter as Router } from "react-router-dom";
 import Routing from './Routing';
 import { Provider } from './Context'
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import { reducer, initialState } from './reducer';
 function App() {
 

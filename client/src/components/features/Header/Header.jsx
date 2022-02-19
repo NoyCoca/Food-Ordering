@@ -53,14 +53,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = () => {
-  const {state} = UseMyContext();
-  
+  const { state } = UseMyContext();
+
   return (
     <Box sx={{ flexGrow: 10 }}>
-      <AppBar position="static" style={{ backgroundColor:  "rgb(249 149 1 / 71%)", position: "fixed", zIndex: "100"}}>
+      <AppBar
+        position="static"
+        style={{
+          backgroundColor: "rgb(249 149 1 / 71%)",
+          position: "fixed",
+          zIndex: "100",
+        }}
+      >
         <Toolbar>
-          <FoodBankIcon size="large" />
-          Food Ordering
+          <Link to="/" style={{ textDecoration: "none", color: "white", display: "flex" }}>
+            <FoodBankIcon size="large" />
+            Food Ordering
+          </Link>
           <Typography
             variant="h6"
             noWrap
@@ -68,8 +77,8 @@ const Header = () => {
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           ></Typography>
           <div className="cartCon">
-            <Link to="summary">
-            <CartButton counter={state.summary?.items} />
+            <Link to="/summary">
+              <CartButton counter={state.summary?.items} />
             </Link>
           </div>
           <Search>

@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Select from "../Select/Select";
-import { useReducer, useState } from "react";
+import {useState } from "react";
 import { UseMyContext } from "../../../Context";
 
 const MenuCard = ({ dish }) => {

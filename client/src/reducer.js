@@ -1,31 +1,13 @@
-const addDishBySize = (array, size) => {
-    return array.map(dishSize => dishSize.size === size ? { ...dishSize, items: dishSize.items += 1 } : dishSize);
-}
-const deleteDishBySize = (array, size) => {
-    debugger
-    return array.map(dishSize => dishSize.size === size ? { ...dishSize, items: dishSize.items -= 1 } : dishSize);
-}
-const sumItemsAndPrice = (array) => {
-    let items = 0;
-    let price = 0;
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array[i].size.length; j++) {
-            if (array[i].size[j].items > 0) {
-                items += array[i].size[j].items;
-                price = price + array[i].size[j].price * array[i].size[j].items;
-            }
-        }
-    }
-    return { items, price }
-}
+import { addDishBySize, deleteDishBySize, sumItemsAndPrice } from "./helpers/helpers";
 
 export const initialState = { summary: {}, dishes: [] };
 export const reducer = (state, action) => {
     let newState ={}
+    const dishIndex = state.dishes.findIndex(dish => dish._id === action.payload.dish._id);
+
     debugger
     switch (action.type) {
         case 'addDish':
-            const dishIndex = state.dishes.findIndex(dish => dish._id === action.payload.dish._id);
             if (dishIndex > -1) {
                 const dishSize = addDishBySize(state.dishes[dishIndex].size, action.payload.size)
                 return {
@@ -33,6 +15,7 @@ export const reducer = (state, action) => {
                     summary: sumItemsAndPrice(state.dishes)
                 }
             }
+            
              newState = {
                 ...state, dishes: [...state.dishes, {
                     ...action.payload.dish, size: addDishBySize(action.payload.dish.size, action.payload.size)
@@ -45,7 +28,6 @@ export const reducer = (state, action) => {
                  
         case 'removeDish':
             const deleteIndex = state.dishes.findIndex(dish => dish._id === action.payload.dish._id);
-
             const dishSize = deleteDishBySize(state.dishes[deleteIndex].size, action.payload.size);
             if (dishSize.filter(size=> size.items > 0).length === 0){
                 newState = {
@@ -72,7 +54,7 @@ export const reducer = (state, action) => {
                 summary: sumItemsAndPrice(dishSize.filter(size => size.items > 0))
                  }
         default:
-            return state
+            return state;
     }
 }
 
